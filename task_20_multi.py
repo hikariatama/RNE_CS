@@ -9,21 +9,29 @@
 def main():
     def f(x: int, y: int, r: int = 1) -> bool:
         # Если кто-то выиграл раньше, чем нужный ход
-        if r < 3 and x + y >= ПОБЕДА:
+        if r < 4 and x + y >= ПОБЕДА:
             # Этот случай нам не подходит
             return False
 
         # Если мы достигли нужного количества ходов
-        if r == 3:
+        if r == 4:
             # Нужно проверить, победил ли нужный нам игрок
             return x + y >= ПОБЕДА
 
-        # Стратегия для наихудших ходов противника
-        return any(f(op(x), y, r + 1) for op in ОПЕРАЦИИ) or any(
-            f(x, op(y), r + 1) for op in ОПЕРАЦИИ
-        )
+        # Возможные исходы
+        cases = [
+            *(f(op(x), y, r + 1) for op in ОПЕРАЦИИ),
+            *(f(x, op(y), r + 1) for op in ОПЕРАЦИИ),
+        ]
 
-    print("Answer:", next(x for x in range(1, 70) if f(x, ПЕРВАЯ_КУЧА)))
+        # Если ход наш, то мы ищем, чтобы хотя бы один исход был победным
+        # Если ход противника, то мы проверяем, чтобы все исходы подходили
+        return all(cases) if r % 2 == 0 else any(cases)
+
+    print(
+        "Answer:",
+        "".join(str(x) for x in range(1, ПОБЕДА - ПЕРВАЯ_КУЧА) if f(x, ПЕРВАЯ_КУЧА)),
+    )
 
 
 # endregion: logic

@@ -1,30 +1,146 @@
 import task_2
 import task_15
-import task_19
+import task_19_single
+import task_20_single
+import task_21_single
+import task_19_multi
+import task_20_multi
+import task_21_multi
 
 
-def test_task_19(capfd):
+def test_task_19_single(capfd):
     # sourcery skip: extract-duplicate-method, move-assign-in-block
-    task_19.ПОБЕДА = 77
-    task_19.ПЕРВАЯ_КУЧА = 7
-    task_19.ОПЕРАЦИИ = [lambda x: x + 1, lambda x: x * 2]
-    task_19.main()
+    task_19_single.ПОБЕДА = 68
+    task_19_single.ОПЕРАЦИИ = [lambda x: x + 1, lambda x: x + 4, lambda x: x * 5]
+    task_19_single.main()
+    out = capfd.readouterr()[0].strip()
+    assert out == "Answer: 3"
+
+    task_19_single.ПОБЕДА = 48
+    task_19_single.ОПЕРАЦИИ = [lambda x: x + 1, lambda x: x + 4, lambda x: x * 2]
+    task_19_single.main()
+    out = capfd.readouterr()[0].strip()
+    assert out == "Answer: 12"
+
+    task_19_single.ПОБЕДА = 42
+    task_19_single.ОПЕРАЦИИ = [lambda x: x + 1, lambda x: x + 3, lambda x: x * 2]
+    task_19_single.main()
+    out = capfd.readouterr()[0].strip()
+    assert out == "Answer: 11"
+
+
+def test_task_20_single(capfd):
+    # sourcery skip: extract-duplicate-method, move-assign-in-block
+    task_20_single.ПОБЕДА = 68
+    task_20_single.ОПЕРАЦИИ = [lambda x: x + 1, lambda x: x + 4, lambda x: x * 5]
+    task_20_single.main()
+    out = capfd.readouterr()[0].strip()
+    assert out == "Answer: 912"
+
+    task_20_single.ПОБЕДА = 48
+    task_20_single.ОПЕРАЦИИ = [lambda x: x + 1, lambda x: x + 4, lambda x: x * 2]
+    task_20_single.main()
+    out = capfd.readouterr()[0].strip()
+    assert out == "Answer: 1922"
+
+    task_20_single.ПОБЕДА = 42
+    task_20_single.ОПЕРАЦИИ = [lambda x: x + 1, lambda x: x + 3, lambda x: x * 2]
+    task_20_single.main()
+    out = capfd.readouterr()[0].strip()
+    assert out == "Answer: 101719"
+
+
+def test_task_21_single(capfd):
+    # sourcery skip: extract-duplicate-method, move-assign-in-block
+    task_21_single.ПОБЕДА = 68
+    task_21_single.ОПЕРАЦИИ = [lambda x: x + 1, lambda x: x + 4, lambda x: x * 5]
+    task_21_single.main()
+    out = capfd.readouterr()[0].strip()
+    assert out == "Answer: 8"
+
+    task_21_single.ПОБЕДА = 48
+    task_21_single.ОПЕРАЦИИ = [lambda x: x + 1, lambda x: x + 4, lambda x: x * 2]
+    task_21_single.main()
     out = capfd.readouterr()[0].strip()
     assert out == "Answer: 18"
 
-    task_19.ПОБЕДА = 61
-    task_19.ПЕРВАЯ_КУЧА = 3
-    task_19.ОПЕРАЦИИ = [lambda x: x + 1, lambda x: x * 4]
-    task_19.main()
+    task_21_single.ПОБЕДА = 42
+    task_21_single.ОПЕРАЦИИ = [lambda x: x + 1, lambda x: x + 3, lambda x: x * 2]
+    task_21_single.main()
+    out = capfd.readouterr()[0].strip()
+    assert out == "Answer: 16"
+
+
+def test_task_19_multi(capfd):
+    # sourcery skip: extract-duplicate-method, move-assign-in-block
+    task_19_multi.ПОБЕДА = 77
+    task_19_multi.ПЕРВАЯ_КУЧА = 7
+    task_19_multi.ОПЕРАЦИИ = [lambda x: x + 1, lambda x: x * 2]
+    task_19_multi.main()
+    out = capfd.readouterr()[0].strip()
+    assert out == "Answer: 18"
+
+    task_19_multi.ПОБЕДА = 61
+    task_19_multi.ПЕРВАЯ_КУЧА = 3
+    task_19_multi.ОПЕРАЦИИ = [lambda x: x + 1, lambda x: x * 4]
+    task_19_multi.main()
     out = capfd.readouterr()[0].strip()
     assert out == "Answer: 4"
 
-    task_19.ПОБЕДА = 82
-    task_19.ПЕРВАЯ_КУЧА = 4
-    task_19.ОПЕРАЦИИ = [lambda x: x + 1, lambda x: x * 4]
-    task_19.main()
+    task_19_multi.ПОБЕДА = 82
+    task_19_multi.ПЕРВАЯ_КУЧА = 4
+    task_19_multi.ОПЕРАЦИИ = [lambda x: x + 1, lambda x: x * 4]
+    task_19_multi.main()
     out = capfd.readouterr()[0].strip()
     assert out == "Answer: 5"
+
+
+def test_task_20_multi(capfd):
+    # sourcery skip: extract-duplicate-method, move-assign-in-block
+    task_20_multi.ПОБЕДА = 77
+    task_20_multi.ПЕРВАЯ_КУЧА = 7
+    task_20_multi.ОПЕРАЦИИ = [lambda x: x + 1, lambda x: x * 2]
+    task_20_multi.main()
+    out = capfd.readouterr()[0].strip()
+    assert out == "Answer: 3134"
+
+    task_20_multi.ПОБЕДА = 61
+    task_20_multi.ПЕРВАЯ_КУЧА = 3
+    task_20_multi.ОПЕРАЦИИ = [lambda x: x + 1, lambda x: x * 4]
+    task_20_multi.main()
+    out = capfd.readouterr()[0].strip()
+    assert out == "Answer: 1214"
+
+    task_20_multi.ПОБЕДА = 82
+    task_20_multi.ПЕРВАЯ_КУЧА = 4
+    task_20_multi.ОПЕРАЦИИ = [lambda x: x + 1, lambda x: x * 4]
+    task_20_multi.main()
+    out = capfd.readouterr()[0].strip()
+    assert out == "Answer: 1619"
+
+
+def test_task_21_multi(capfd):
+    # sourcery skip: extract-duplicate-method, move-assign-in-block
+    task_21_multi.ПОБЕДА = 77
+    task_21_multi.ПЕРВАЯ_КУЧА = 7
+    task_21_multi.ОПЕРАЦИИ = [lambda x: x + 1, lambda x: x * 2]
+    task_21_multi.main()
+    out = capfd.readouterr()[0].strip()
+    assert out == "Answer: 30"
+
+    task_21_multi.ПОБЕДА = 61
+    task_21_multi.ПЕРВАЯ_КУЧА = 3
+    task_21_multi.ОПЕРАЦИИ = [lambda x: x + 1, lambda x: x * 4]
+    task_21_multi.main()
+    out = capfd.readouterr()[0].strip()
+    assert out == "Answer: 13"
+
+    task_21_multi.ПОБЕДА = 82
+    task_21_multi.ПЕРВАЯ_КУЧА = 4
+    task_21_multi.ОПЕРАЦИИ = [lambda x: x + 1, lambda x: x * 4]
+    task_21_multi.main()
+    out = capfd.readouterr()[0].strip()
+    assert out == "Answer: 18"
 
 
 def test_task_2(capfd):
