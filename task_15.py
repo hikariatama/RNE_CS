@@ -9,7 +9,7 @@ def ФУНКЦИЯ(x: int, A: int) -> bool:
     return x & 51 == 0 or ((x & A == 0) ** (x & 41 == 0))
 
 
-НАЙТИ_МАКСИМАЛЬНОЕ = True  # True если нужно найти наибольшее A
+НАЙТИ_МАКСИМАЛЬНОЕ = False  # True если нужно найти наибольшее A
 
 
 # endregion: input
@@ -18,7 +18,7 @@ def ФУНКЦИЯ(x: int, A: int) -> bool:
 
 def main():
     maximum = 0
-    for A in range(1, 1000):
+    for A in range(1000):
         for variables in itertools.product(range(1000), repeat=len(ПЕРЕМЕННЫЕ)):
             if not ФУНКЦИЯ(*variables, A=A):
                 break
